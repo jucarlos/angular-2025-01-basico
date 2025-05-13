@@ -10,15 +10,21 @@
 </button>
 
 
-<div *ngIf="heroeBorrado; else noHayHeroeBorrado">
+<!-- <div *ngIf="heroeBorrado; else noHayHeroeBorrado">
     <h4>Ultimo héroe borrado: {{ heroeBorrado }} </h4>
 </div>
 
 
 <ng-template #noHayHeroeBorrado >
     <h4>No hay ningún héroe borrado</h4>
-</ng-template>
+</ng-template> -->
 
+
+@if( heroeBorrado ) {
+    <h4>Ultimo héroe borrado: {{ heroeBorrado }} </h4>
+} @else {
+    <h4>No hay ningún héroe borrado</h4>
+}
 
 
 
@@ -27,7 +33,7 @@
 <ul class="list-group">
 
 
-    <li *ngFor="let heroe of heroes; 
+    <!-- <li *ngFor="let heroe of heroes; 
         let i = index;
         let isLast = last;
         let isEven = even;"
@@ -43,6 +49,18 @@
        {{ i + 1 }} - {{ heroe }} - Ultimo: {{ isLast }} Par: {{ isEven }}
     
     
-    </li>
+    </li> -->
+
+    @for(heroe of heroes; track $index; 
+        let idx = $index, 
+        isLast = $last, isEven = $even ) {
+        
+        <li class="list-group-item"
+         [ngClass]="{
+            'list-group-item-warning': isLast,
+            'list-group-item-secondary': isEven,
+        }"
+        >{{ heroe }}</li>
+    }
     
 </ul>
