@@ -16,7 +16,8 @@ export class ListaHeroesComponent {
 
   borrarUltimoHeroe(): void {
 
-    this.heroes.pop() ;
+    this.heroeBorrado = this.heroes.pop() ||  '';
+    
     
 
 

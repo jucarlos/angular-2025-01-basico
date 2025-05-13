@@ -10,8 +10,19 @@
 </button>
 
 
-<h4>Ultimo héroe borrado:  </h4>
+<div *ngIf="heroeBorrado; else noHayHeroeBorrado">
+    <h4>Ultimo héroe borrado: {{ heroeBorrado }} </h4>
+</div>
 
+
+<ng-template #noHayHeroeBorrado >
+    <h4>No hay ningún héroe borrado</h4>
+</ng-template>
+
+
+
+
+<br/>
 
 <ul class="list-group">
 
