@@ -1,11 +1,37 @@
 <h3>Listado de Héroes</h3>
 <hr>
 
+
+<button type="button" 
+        class="btn btn-danger mb-3"
+        (click)="borrarUltimoHeroe()"
+        >
+    Borrar último héroe
+</button>
+
+
+<h4>Ultimo héroe borrado:  </h4>
+
+
 <ul class="list-group">
 
 
-    <li *ngFor="let heroe of heroes" class="list-group-item">
-        {{ heroe }}
+    <li *ngFor="let heroe of heroes; 
+        let i = index;
+        let isLast = last;
+        let isEven = even;"
+        
+        class="list-group-item" 
+        [ngClass]="{
+            'list-group-item-warning': isLast,
+            'list-group-item-secondary': isEven,
+        }"
+        >
+
+
+       {{ i + 1 }} - {{ heroe }} - Ultimo: {{ isLast }} Par: {{ isEven }}
+    
+    
     </li>
     
 </ul>

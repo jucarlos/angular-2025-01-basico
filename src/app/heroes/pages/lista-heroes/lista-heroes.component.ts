@@ -8,7 +8,19 @@ import { Component } from '@angular/core';
 })
 export class ListaHeroesComponent {
 
-  public heroes: string[] = ['Capitán América', 'SuperMan', 'Wonder Woman'];
+  public heroes: string[] =
+  ['Capitán América', 'SuperMan', 'Wonder Woman', 'Iron Man', 'Batman'];
+
+  public heroeBorrado: string = '';
+
+
+  borrarUltimoHeroe(): void {
+
+    this.heroes.pop() ;
+    
+
+
+  }
   
 
 }
